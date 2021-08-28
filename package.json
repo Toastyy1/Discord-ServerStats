@@ -1,0 +1,36 @@
+{
+  "name": "discord_server-stats",
+  "version": "0.0.1",
+  "description": "A small Discord Bot for showing server stats",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "regcmd": "node util/deploy-commands.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Toasty65/Discord-ServerStats.git"
+  },
+  "keywords": [
+    "bot",
+    "statistics",
+    "discord",
+    "server"
+  ],
+  "author": "Toasty65",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Toasty65/Discord-ServerStats/issues"
+  },
+  "homepage": "https://github.com/Toasty65/Discord-ServerStats#readme",
+  "dependencies": {
+    "@discordjs/builders": "^0.6.0",
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "discord-api-types": "^0.22.0",
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {
+    "jest": "^27.1.0"
+  }
+}

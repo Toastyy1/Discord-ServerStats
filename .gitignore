@@ -1,3 +1,7 @@
+# Own files / directories
+.env
+old
+
 # Logs
 logs
 *.log
