@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, Intents } = require('discord.js');
+const { Client, Intents, Collection } = require('discord.js');
 
 // Create a new Discord client
 const client = new Client({
@@ -9,8 +9,12 @@ const client = new Client({
     ],
 });
 
-// Call the event handler
-require(`./handlers/event_handler.js`)(client);
+client.commands = new Collection();
+
+// Load all commands in ./commands/ into the Collection
+['command_handler','event_handler'].forEach(handler => {
+	require(`./handlers/${handler}`)(client);
+});
 
 // Login to the bot
 client.login(process.env.TOKEN);
