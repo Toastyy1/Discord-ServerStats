@@ -36,4 +36,19 @@ module.exports = (client) => {
       client.commands.set(command.name, command);
     }
   }
+
+  // Do the same for all options
+  fileArray.splice(0, fileArray.length);
+  readCommands("options");
+
+  for (const file of fileArray) {
+    const option = require(`../${file}`);
+
+    if (option.name) {
+      client.menuOptions.set(option.name, option);
+    }
+  }
+
+  console.log(client.menuOptions);
+
 };

@@ -4,37 +4,40 @@ const { MessageActionRow, MessageSelectMenu } = require('discord.js');
 module.exports = {
   name: 'menu',
 	data: new SlashCommandBuilder()
-		.setName('help1')
+		.setName('help')
 		.setDescription('Shows the menu for creating stats channels'),
 	async execute(client, interaction) {
-		const row = new MessageActionRow().addComponents(
-			new MessageSelectMenu()
-			.setCustomId('menu')
-			.setPlaceholder('Please select an option')
-			.addOptions([
-				{
-					label: 'Member Count',
-					description: 'Creates a new channel which shows the current member count',
-					value: 'memberCount',
-				},
-				{
-					label: 'Creation Date',
-					description: 'Creates a new channel which shows the date the server was created',
-					value: 'creationDate',
-				},
-				{
-					label: 'Online Members',
-					description: 'Creates a new channel which shows the current member count',
-					value: 'memberCount',
-				},
-				{
-					label: 'Member Goal',
-					description: 'Creates a new channel which shows the current member goal',
-					value: 'memberGoal',
-				},
-			]),
-		);
+		const row = new MessageActionRow()
+			.addComponents(
+				new MessageSelectMenu()
+					.setCustomId('optionMenu')
+					.setPlaceholder('Please select an option')
+					.setMinValues(1)
+					.setMaxValues(4)
+					.addOptions([
+						{
+							label: 'Member Count',
+							description: 'Creates a channel which shows the current number of members',
+							value: 'memberCount',
+						},
+						{
+							label: 'Member Goal',
+							description: 'Creates a channel which shows the current member goal',
+							value: 'memberGoal',
+						},
+						{
+							label: 'Online Members',
+							description: 'Creates a channel which shows how many members are currently online',
+							value: 'onlineMembers',
+						},
+						{
+							label: 'Creation Date',
+							description: 'Creates a channel which shows date the server was created',
+							value: 'creationDate',
+						},
+					]),
+			);
 
-		await interaction.reply({ content: 'Please select one of the available options:', components: [row] });
+		await interaction.reply({ content: 'These are the available options:', components: [row] });
 	}
 };
