@@ -3,6 +3,7 @@
 const fs = require("fs");
 const path = require("path");
 const rootDir = path.dirname(require.main.filename);
+let selectedCategoryId;
 
 module.exports = async (client, interaction) => {
   if (interaction.isCommand()) {
@@ -24,16 +25,22 @@ module.exports = async (client, interaction) => {
   }
 
   if (interaction.isSelectMenu()) {
-    console.log(interaction);
-
     const { values } = interaction;
 
-    values.forEach((element) => {
-      const menuCommand = client.menuOptions.get(element);
-		console.log(menuCommand);
-      if (!menuCommand) return;
-
-      menuCommand.execute(client, interaction);
-    });
+    switch (interaction.customId) {
+      case "selectCategory":
+        selectedCategoryId = values[0];
+        require("../../menues/optionMenu").execute(client, interaction, values);
+        break;
+      case "optionMenu":
+        await interaction.deferReply();
+        values.forEach((element) => {
+          const menuCommand = client.menuOptions.get(element);
+          if (!menuCommand) return;
+          menuCommand.execute(client, interaction, selectedCategoryId);
+        });
+        await interaction.editReply('All operations finishes successfully!');
+        break;
+    }
   }
 };

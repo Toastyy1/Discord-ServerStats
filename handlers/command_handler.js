@@ -48,7 +48,4 @@ module.exports = (client) => {
       client.menuOptions.set(option.name, option);
     }
   }
-
-  console.log(client.menuOptions);
-
 };

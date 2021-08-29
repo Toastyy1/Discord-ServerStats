@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "A small Discord Bot for showing server stats",
   "main": "index.js",
+  "jest": {
+    "verbose": false
+  },
   "scripts": {
     "test": "jest",
     "regcmd": "node util/deploy-commands.js"
