@@ -4,16 +4,19 @@ module.exports = {
     const members = await interaction.guild.members.fetch();
     const realMembers = members.filter((m) => !m.user.bot).size;
 
-    // Create the channel
-    interaction.guild.channels.create(`Members: ${realMembers}`, {
-      parent: categoryId,
+    const channelOptions = {
+      name: `${process.env.MEMBERCOUNT_CHANNELNAME} ${realMembers}`,
       type: "GUILD_VOICE",
+      category: categoryId,
       permissionOverwrites: [
         {
           id: interaction.guild.id,
           deny: ["CONNECT"],
         },
       ],
-    });
+    };
+
+    //Create the channel
+    require("../util/createChannel").execute(interaction, channelOptions);
   },
 };

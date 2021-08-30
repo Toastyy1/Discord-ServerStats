@@ -1,11 +1,16 @@
 test('Formats date to DD-MM-YYYY', () => {
-    const input = new Date();
-    // Convert to DD-MM-YYYY
+    const channelOptions = {
+        name: `Members: 100`,
+        type: "GUILD_VOICE",
+        category: '123456789',
+        permissionOverwrites: [
+          {
+            id: '9999999999999999554654',
+            deny: ["CONNECT"],
+          }
+        ]
+      }
 
-    const newdate = input.toLocaleDateString('de-DE', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric'
-    })
-    console.log(newdate);
+    const { name, type, category, permissionOverwrites } = channelOptions;
+    console.log(permissionOverwrites);
 })

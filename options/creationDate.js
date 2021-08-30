@@ -12,16 +12,19 @@ module.exports = {
     const { createdAt } = interaction.guild;
     const creationDate = convertDate(createdAt);
 
-    // Create the channel => Do this in util/createChannel.js
-    interaction.guild.channels.create(`Erstellt am: ${creationDate}`, {
-        parent: categoryId,
-        type: 'GUILD_VOICE',
-        permissionOverwrites: [
-            {
-                id: interaction.guild.id,
-                deny: ['CONNECT'],
-            }
-        ]
-    })
+    const channelOptions = {
+      name: `${process.env.CREATEDAT_CHANNELNAME} ${creationDate}`,
+      type: "GUILD_VOICE",
+      category: categoryId,
+      permissionOverwrites: [
+        {
+          id: interaction.guild.id,
+          deny: ["CONNECT"],
+        },
+      ],
+    };
+
+    //Create the channel
+    require("../util/createChannel").execute(interaction, channelOptions);
   },
 };

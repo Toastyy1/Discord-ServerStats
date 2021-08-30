@@ -18,5 +18,7 @@ client.menuOptions = new Collection();
 	require(`./handlers/${handler}`)(client);
 });
 
+require('./util/updater').execute(client);
+
 // Login to the bot
 client.login(process.env.TOKEN);
