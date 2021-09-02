@@ -6,6 +6,8 @@ const rootDir = path.dirname(require.main.filename);
 let selectedCategoryId;
 
 module.exports = async (client, interaction) => {
+  // Move this to selectCategoryMenu.js
+
   if (interaction.isCommand()) {
     const { commandName } = interaction;
 

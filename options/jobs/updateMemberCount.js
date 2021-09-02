@@ -15,8 +15,8 @@ module.exports = {
             return console.log(`Couldn't get the new member count: ${error}`);
         }
 
-        await memberCountChannel.setName(`${process.env.MEMBERCOUNT_CHANNELNAME} ${newRealMembers}`,
-        { reason: 'Update member count' })
+        await memberCountChannel.setName({name: `${process.env.MEMBERCOUNT_CHANNELNAME} ${newRealMembers}`,
+        reason: 'Updated member count' })
         .catch(e => console.log(`Couldn't update the channel: ${e}`));
         console.log('Member count updated');
     }
