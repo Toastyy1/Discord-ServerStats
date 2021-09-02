@@ -41,7 +41,8 @@ module.exports = async (client, interaction) => {
           if (!menuCommand) return;
           menuCommand.execute(client, interaction, selectedCategoryId);
         });
-        await interaction.editReply('All operations finishes successfully!');
+        const responseEmbed = require('../../response embeds/successfulEmbed').embed;
+        await interaction.editReply({ content: 'All operations finishes successfully!', embeds: [responseEmbed] });
         break;
     }
   }

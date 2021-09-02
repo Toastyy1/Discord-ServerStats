@@ -12,6 +12,7 @@ const client = new Client({
 
 client.commands = new Collection();
 client.menuOptions = new Collection();
+client.responseEmbeds = new Collection();
 
 // Load all commands in ./commands/ into the Collection
 ['command_handler','event_handler'].forEach(handler => {
