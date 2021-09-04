@@ -1,11 +1,7 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageActionRow, MessageSelectMenu } = require("discord.js");
 
 module.exports = {
   name: "menu",
-  data: new SlashCommandBuilder()
-    .setName("help")
-    .setDescription("Shows the menu for creating stats channels"),
   async execute(client, interaction) {
     const categories = interaction.guild.channels.cache
       .filter((c) => c.parent?.type === "GUILD_CATEGORY")
