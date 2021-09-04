@@ -48,4 +48,16 @@ module.exports = (client) => {
       client.menuOptions.set(option.name, option);
     }
   }
+
+  // Do the same for all response embeds
+  fileArray.splice(0, fileArray.length);
+  readCommands("embeds");
+
+  for (const file of fileArray) {
+    const option = require(`../${file}`);
+
+    if (option.name) {
+      client.responseEmbeds.set(option.name, option);
+    }
+  }
 };

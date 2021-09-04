@@ -19,5 +19,8 @@ client.responseEmbeds = new Collection();
 	require(`./handlers/${handler}`)(client);
 });
 
+// Register / reload slash commands
+require('./util/createCommands')();
+
 // Login to the bot
 client.login(process.env.TOKEN);

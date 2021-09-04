@@ -20,8 +20,9 @@ module.exports = async (client, interaction) => {
     } catch (error) {
       console.error(error);
       await interaction.reply({
-        content: "There was an error while executing this command!",
+        content: ":(",
         ephemeral: true,
+        embeds: [client.responseEmbeds.get("errorEmbed").embed]
       });
     }
   }
@@ -41,8 +42,7 @@ module.exports = async (client, interaction) => {
           if (!menuCommand) return;
           menuCommand.execute(client, interaction, selectedCategoryId);
         });
-        const responseEmbed = require('../../embeds/successfulEmbed').embed;
-        await interaction.editReply({ content: 'Done!', embeds: [responseEmbed] });
+        await interaction.editReply({ content: ' ', embeds: [client.responseEmbeds.get('successful').embed] });
         break;
     }
   }
