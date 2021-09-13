@@ -1,6 +1,6 @@
 module.exports = function (errorOutput) {
   return {
-    description: errorOutput,
-    color: 0x00ff00,
+    description: "❌ " + errorOutput,
+    color: 0xff3333,
   };
 };
