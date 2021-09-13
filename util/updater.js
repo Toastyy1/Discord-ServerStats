@@ -32,6 +32,7 @@ module.exports = {
                         embeds: [require('../embeds/errorReport')(info)]
                       })
                 })
+                .catch(() => console.log(`Couldn't send error report`));
         }
 
     }
