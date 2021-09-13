@@ -1,11 +1,22 @@
 module.exports = {
-    name: "onlineMembers",
-    execute: async (client, interaction, categoryId) => {
-        const allMembers = await interaction.guild.members.fetch();
-        console.log(client.guilds.cache.get(process.env.GUILDID).presences.cache.size);
+  name: "onlineMembers",
+  execute: async (client, interaction, categoryId) => {
+    const guildMembers = await client.guilds.cache.get(process.env.GUILDID).members.fetch({ withPresences: true })
+    let onlineMembers = await guildMembers.filter((online) => online.presence?.status === "online").size
 
-        // FIXME: Fix the error of not being able to access the presence of all members
-        const onlineMembers = allMembers.filter(member => !member.user.bot && member.presence.status !== "offline");
-        console.log(onlineMembers)
-    }
-}
+    const channelOptions = {
+        name: `${process.env.ONLINEMEMBERS_CHANNELNAME} ${onlineMembers}`,
+        type: "GUILD_VOICE",
+        category: categoryId,
+        permissionOverwrites: [
+          {
+            id: interaction.guild.id,
+            deny: ["CONNECT"],
+          },
+        ],
+      };
+
+    //Create the channel
+    require("../util/createChannel").execute(interaction, channelOptions);
+  },
+};

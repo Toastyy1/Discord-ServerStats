@@ -1,16 +1,10 @@
 // This represents the commmand handler
 
-const fs = require("fs");
-const path = require("path");
-const rootDir = path.dirname(require.main.filename);
 let selectedCategoryId;
 
 module.exports = async (client, interaction) => {
-  // Move this to selectCategoryMenu.js
-
   if (interaction.isCommand()) {
     const { commandName } = interaction;
-
     const command = client.commands.get(interaction.commandName);
 
     if (!command) return;
@@ -20,9 +14,8 @@ module.exports = async (client, interaction) => {
     } catch (error) {
       console.error(error);
       await interaction.reply({
-        content: ":(",
-        ephemeral: true,
-        embeds: [client.responseEmbeds.get("errorEmbed").embed]
+        content: " ",
+        embeds: [client.responseEmbeds.get("errorEmbed").embed],
       });
     }
   }
@@ -35,14 +28,26 @@ module.exports = async (client, interaction) => {
         selectedCategoryId = values[0];
         require("../../menues/optionMenu").execute(client, interaction, values);
         break;
+
       case "optionMenu":
         await interaction.deferReply();
-        values.forEach((element) => {
+        values.forEach(async (element) => {
           const menuCommand = client.menuOptions.get(element);
           if (!menuCommand) return;
-          menuCommand.execute(client, interaction, selectedCategoryId);
+          try {
+            await menuCommand.execute(client, interaction, selectedCategoryId);
+            await interaction.editReply({
+              content: " ",
+              embeds: [client.responseEmbeds.get("successful").embed],
+            });
+          } catch (error) {
+            console.log(error);
+            return await interaction.editReply({
+              content: "<@224501142237741057>",
+              embeds: [require('../../embeds/errorOutput')('An error has occured!\n\n`' + error + '`')],
+            });
+          }
         });
-        await interaction.editReply({ content: ' ', embeds: [client.responseEmbeds.get('successful').embed] });
         break;
     }
   }

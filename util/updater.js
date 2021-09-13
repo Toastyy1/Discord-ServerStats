@@ -6,5 +6,10 @@ module.exports = {
         const updateMemberCountJob = schedule.scheduleJob('0 */2 * * *', () => {
             require('../options/jobs/updateMemberCount').execute(client);
         });
+
+        // Run this job every 5 minutes
+        const updateOnlineMembers = schedule.scheduleJob('*/5 * * * *', () => {
+            require('../options/jobs/updateOnlineMembers').execute(client);
+        });
     }
 }
