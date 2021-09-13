@@ -65,7 +65,7 @@ module.exports = async (client, interaction) => {
 
             return await interaction.editReply({
               content: " ",
-              embeds: [require('../../embeds/errorOutput')('An error has occured!')],
+              embeds: [require('../../embeds/errorOutput')('An error has occured! The developer has been contacted.')],
             });
           }
         });
