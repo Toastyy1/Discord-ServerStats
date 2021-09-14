@@ -2,7 +2,7 @@ module.exports = {
   name: "onlineMembers",
   execute: async (client, interaction, categoryId) => {
     const guildMembers = await client.guilds.cache.get(process.env.GUILDID).members.fetch({ withPresences: true })
-    let onlineMembers = await guildMembers.filter((online) => online.presence?.status === "online").size
+    let onlineMembers = await guildMembers.filter(member => !member.user.bot && member.presence?.status === "online").size
 
     const channelOptions = {
         name: `${process.env.ONLINEMEMBERS_CHANNELNAME} ${onlineMembers}`,
