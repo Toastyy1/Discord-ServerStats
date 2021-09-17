@@ -36,8 +36,8 @@ module.exports = {
       ],
     };
 
-    const existingChannel = interaction.guild.channels.cache.find((channel) =>
-      channel.name.includes(process.env.MEMBERGOAL_CHANNELNAME)
+    const existingChannel = interaction.guild.channels.cache.find(channel =>
+      channel.parentId === categoryId && channel.name.includes(process.env.MEMBERGOAL_CHANNELNAME)
     );
     if (existingChannel) {
       // Update the existing channel
@@ -49,5 +49,8 @@ module.exports = {
       //Create the channel
       require("../util/createChannel").execute(interaction, channelOptions);
     }
+
+    await interaction.channel.bulkDelete(1)
+    .catch(e => console.log('Could not delete the user response message: ' + e));
   },
 };
