@@ -11,8 +11,6 @@ module.exports = {
       new MessageSelectMenu()
         .setCustomId("optionMenu")
         .setPlaceholder("Please select an option")
-        .setMinValues(1)
-        .setMaxValues(4)
         .addOptions([
           {
             label: "Member Count",

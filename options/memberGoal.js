@@ -11,17 +11,11 @@ module.exports = {
     const filter = (m) => !isNaN(parseInt(m.content)) && m.author.id === interaction.user.id;
 
     try {
-      interaction.channel
-        .awaitMessages({ filter, max: 1, time: 5000, errors: ["time"] })
-        .then((collected) => {
-          goal = collected.first().content;
-        })
-        .catch(collected => {
-            throw new Error("No goal was entered!");
-        });
-      await wait(5000);
+      const collected = await interaction.channel.awaitMessages({ filter, max: 1, time: 5000, errors: ["time"] });
+      goal = parseInt(collected.first().content);
+      console.log(collected);
     } catch (error) {
-      interaction.editReply({
+      return await interaction.editReply({
         content: " ",
         embeds: [
           require("../embeds/errorOutput")(
@@ -29,7 +23,6 @@ module.exports = {
           ),
         ],
       });
-      return error;
     }
 
     const channelOptions = {

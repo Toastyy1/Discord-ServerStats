@@ -17,7 +17,7 @@ module.exports = {
             const time = new Date().toUTCString();
             const guild = await client.guilds.fetch(process.env.GUILDID);
             const info = {
-              error,
+              error: error.message.substr(error.message.indexOf(" ") + 1),
               guild: guild.name,
               time,
               user: client.user.username,
