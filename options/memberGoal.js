@@ -18,7 +18,7 @@ module.exports = {
         content: " ",
         embeds: [
           require("../embeds/errorOutput")(
-            "No answer after 5 seconds, operation canceled"
+            "No (valid) answer after 5 seconds, operation canceled"
           ),
         ],
       });
