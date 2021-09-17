@@ -8,7 +8,7 @@ module.exports = function (info) {
             "url": icon
           },
           "author": {
-            "name": `❗ Error in guild ${guild} ❗`,
+            "name": `❗ Error in guild "${guild}" ❗`,
             "icon_url": icon
           },
           "fields": [

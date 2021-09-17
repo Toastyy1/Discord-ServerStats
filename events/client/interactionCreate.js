@@ -44,7 +44,7 @@ module.exports = async (client, interaction) => {
             // Create info object for error report
             const time = new Date().toUTCString();
             const info = {
-              error,
+              error: error.message.substr(error.message.indexOf(" ") + 1),
               guild: interaction.guild.name,
               time,
               user: interaction.member.nickname,
@@ -54,7 +54,7 @@ module.exports = async (client, interaction) => {
             };
 
             // Send error report
-            await interaction.guild.members.fetch('224501142237741057')
+            await interaction.guild.members.fetch(process.env.DEVELOPERID)
             .then(member => {
                 member.send({
                 embeds: [require('../../embeds/errorReport')(info)]
@@ -70,6 +70,8 @@ module.exports = async (client, interaction) => {
           }
         });
         break;
+        default:
+          break;
     }
   }
 };

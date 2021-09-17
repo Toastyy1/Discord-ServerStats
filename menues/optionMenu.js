@@ -11,8 +11,6 @@ module.exports = {
       new MessageSelectMenu()
         .setCustomId("optionMenu")
         .setPlaceholder("Please select an option")
-        .setMinValues(1)
-        .setMaxValues(4)
         .addOptions([
           {
             label: "Member Count",
@@ -29,7 +27,7 @@ module.exports = {
           {
             label: "Online Members",
             description:
-              "Creates a channel which shows how many members are currently online",
+              "Creates a channel which shows (most) of the online members",
             value: "onlineMembers",
           },
           {
