@@ -35,7 +35,8 @@ module.exports = async (client, interaction) => {
           const menuCommand = client.menuOptions.get(element);
           if (!menuCommand) return;
           try {
-            await menuCommand.execute(client, interaction, selectedCategoryId);
+            const exe = await menuCommand.execute(client, interaction, selectedCategoryId);
+            if(exe) return;
             await interaction.editReply({
               content: " ",
               embeds: [client.responseEmbeds.get("successful").embed],
