@@ -13,7 +13,6 @@ module.exports = {
     try {
       const collected = await interaction.channel.awaitMessages({ filter, max: 1, time: 5000, errors: ["time"] });
       goal = parseInt(collected.first().content);
-      console.log(collected);
     } catch (error) {
       return await interaction.editReply({
         content: " ",
