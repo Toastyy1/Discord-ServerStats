@@ -14,11 +14,11 @@ module.exports = {
           .setPlaceholder("Select a category")
       );
 
-      uniqueCategories.forEach((category) => {
+      uniqueCategories.forEach(category => {
         row.components[0].addOptions([
           {
             label: category.name,
-            description: "This is a description",
+            description: " ⁣",
             value: category.id,
           },
         ]);
