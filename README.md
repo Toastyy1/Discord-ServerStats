@@ -12,7 +12,7 @@ A server-stats bot written by Toasty, for the [JuLe Netzwerk](http://www.jule-ne
 ## Prerequisites
 
 - Node.js 16.9.1 or higher
-- A complete and valid `.env` file
+- A complete and valid `.env` file -> [Example file](https://github.com/Toasty65/Discord-ServerStats/blob/main/.env)
 - Following npm packages:
   - discord.js
   - dotenv
