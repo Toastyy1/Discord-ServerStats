@@ -4,10 +4,10 @@ A server-stats bot written by Toasty, for the [JuLe Netzwerk](http://www.jule-ne
 
 ## Commands
 
-| Command | Description  |
-| ------------- | ------------- |
-| /help | Shows a small help-embed containing a step-by-step description |
-| /menu | Sends the dropdown menu for choosing the category the user want to create the stats-channels in. After selecting the category, another menu is sent in which you can select the type of stats-channel |
+| Command | Description                                                                                                                                                                                           |
+|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| /help   | Shows a small help-embed containing a step-by-step description                                                                                                                                        |
+| /menu   | Sends the dropdown menu for choosing the category the user want to create the stats-channels in. After selecting the category, another menu is sent in which you can select the type of stats-channel |
 
 ## Prerequisites
 
