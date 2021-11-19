@@ -2,6 +2,7 @@
 .env
 old
 report/
+.test
 
 # Logs
 logs
