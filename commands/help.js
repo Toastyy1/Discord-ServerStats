@@ -43,6 +43,6 @@ module.exports = {
       },
     };
 
-	interaction.reply({ content: " ", embeds: [embed] });
+	interaction.reply({ content: " ", embeds: [embed], ephemeral: true});
   },
 };

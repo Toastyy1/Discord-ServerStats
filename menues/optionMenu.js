@@ -42,6 +42,7 @@ module.exports = {
     await interaction.reply({
       content: "These are the available options:",
       components: [row],
+      ephemeral: true
     });
   },
 };

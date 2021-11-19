@@ -16,6 +16,7 @@ module.exports = async (client, interaction) => {
       await interaction.reply({
         content: " ",
         embeds: [client.responseEmbeds.get("errorEmbed").embed],
+        ephemeral: true
       });
     }
   }
@@ -30,7 +31,7 @@ module.exports = async (client, interaction) => {
         break;
 
       case "optionMenu":
-        await interaction.deferReply();
+        await interaction.deferReply({ ephemeral: true });
         values.forEach(async (element) => {
           const menuCommand = client.menuOptions.get(element);
           if (!menuCommand) return;
@@ -40,6 +41,7 @@ module.exports = async (client, interaction) => {
             await interaction.editReply({
               content: " ",
               embeds: [client.responseEmbeds.get("successful").embed],
+              ephemeral: true
             });
           } catch (error) {
             // Create info object for error report
@@ -67,6 +69,7 @@ module.exports = async (client, interaction) => {
             return await interaction.editReply({
               content: " ",
               embeds: [require('../../embeds/errorOutput')('An error has occured! The developer has been contacted.')],
+              ephemeral: true
             });
           }
         });

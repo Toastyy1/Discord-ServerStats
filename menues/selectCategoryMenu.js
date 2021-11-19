@@ -27,6 +27,7 @@ module.exports = {
       await interaction.reply({
         content: "Select the category you want the stats to show up:",
         components: [row],
+        ephemeral: true
       });
     } catch (error) {
       console.log(`Could not create the "select category menu": ${error}`);
