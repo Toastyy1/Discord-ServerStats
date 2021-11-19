@@ -14,7 +14,7 @@ jobs:
           fetch-depth: 0
 
       - name: Lint Code Base
-        uses: megalinter/megalinter@v4
+        uses: megalinter/megalinter@v5
         env:
           VALIDATE_ALL_CODEBASE: true
           DEFAULT_BRANCH: main
