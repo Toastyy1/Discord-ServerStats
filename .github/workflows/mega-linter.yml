@@ -26,9 +26,21 @@ jobs:
       - name: MegaLinter
         uses: megalinter/megalinter@v5
         env:
-          VALIDATE_ALL_CODEBASE: true
+          # Validates all source when push on main, else just the git diff with main.
+          VALIDATE_ALL_CODEBASE: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Upload MegaLinter artifacts
+      - name: Archive production artifacts
+        if: ${{ success() }} || ${{ failure() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: MegaLinter reports
+          path: |
+            report
+            mega-linter.log
+
 
       # Create pull request if applicable (for now works only on PR from same repository, not from forks)
       - name: Create Pull Request with applied fixes
