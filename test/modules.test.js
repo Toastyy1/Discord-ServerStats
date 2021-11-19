@@ -11,6 +11,6 @@ test('Formats date to DD-MM-YYYY', () => {
     ]
   }
 
-  const { name, type, category, permissionOverwrites } = channelOptions
+  const { permissionOverwrites } = channelOptions
   console.log(permissionOverwrites)
 })

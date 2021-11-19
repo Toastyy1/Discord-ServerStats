@@ -26,7 +26,7 @@ module.exports = {
         },
         {
           name: '(Step 3)',
-          value: 'If you\'ve selected the option \"Member Goal\" you have to enter the goal as number within 5 seconds'
+          value: 'If you\'ve selected the option "Member Goal" you have to enter the goal as number within 5 seconds'
         },
         {
           name: '\u200b',

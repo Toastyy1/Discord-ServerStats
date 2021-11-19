@@ -1,17 +1,17 @@
 const fs = require('fs')
 
 module.exports = (client) => {
-  const load_dir = (dirs) => {
-    const event_flies = fs.readdirSync(`./events/${dirs}`).filter(file => file.endsWith('.js'))
+  const loadDir = (dirs) => {
+    const eventFiles = fs.readdirSync(`./events/${dirs}`).filter(file => file.endsWith('.js'))
 
-    for (const file of event_flies) {
+    for (const file of eventFiles) {
       const event = require(`../events/${dirs}/${file}`)
 
-      const event_name = file.split('.')[0]
+      const eventName = file.split('.')[0]
 
-      client.on(event_name, event.bind(null, client))
+      client.on(eventName, event.bind(null, client))
     }
   };
 
-  ['client', 'guild'].forEach(e => load_dir(e))
+  ['client', 'guild'].forEach(e => loadDir(e))
 }

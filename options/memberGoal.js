@@ -1,5 +1,3 @@
-const wait = require('util').promisify(setTimeout)
-
 module.exports = {
   name: 'memberGoal',
   execute: async (client, interaction, categoryId) => {
