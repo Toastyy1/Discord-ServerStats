@@ -1,6 +1,7 @@
 # Own files / directories
 .env
 old
+report/
 
 # Logs
 logs

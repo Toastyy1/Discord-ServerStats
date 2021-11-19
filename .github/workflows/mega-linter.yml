@@ -1,4 +1,4 @@
-name: Super Linter
+name: Mega Linter
 
 on:
   workflow_dispatch:
@@ -14,8 +14,11 @@ jobs:
           fetch-depth: 0
 
       - name: Lint Code Base
-        uses: github/super-linter@v4
+        uses: megalinter/megalinter@v4
         env:
           VALIDATE_ALL_CODEBASE: true
           DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          APPLY_FIXES: all
+          APPLY_FIXES_EVENT: pull_request
+          APPLY_FIXES_MODE: pull_request
+
