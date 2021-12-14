@@ -49,7 +49,7 @@ module.exports = async (client, interaction) => {
               error: error.message.substr(error.message.indexOf(' ') + 1),
               guild: interaction.guild.name,
               time,
-              user: interaction.member.nickname,
+              user: interaction.user.username,
               channel: interaction.channel.name,
               icon: interaction.guild.iconURL(),
               usedCommand: element
