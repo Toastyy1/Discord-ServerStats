@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "A small Discord Bot for showing server stats",
   "main": "index.js",
+  "engines": {
+    "node": "16.x"
+  },
   "jest": {
     "verbose": false
   },
