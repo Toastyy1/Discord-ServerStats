@@ -1,7 +1,6 @@
 # Discord-ServerStats
 
-A server-stats bot written by Toasty, for the [JuLe Netzwerk](http://www.jule-netzwerk.de) Discord server.
-
+A server-stats bot for the chatting platform `Discord`, written by Toasty
 ## Commands
 
 | Command | Description                                                                                                                                                                                           |
@@ -13,6 +12,9 @@ A server-stats bot written by Toasty, for the [JuLe Netzwerk](http://www.jule-ne
 
 - Node.js 16.9.1 or higher
 - A complete and valid `.env` file -> [Example file](https://github.com/Toasty65/Discord-ServerStats/blob/main/.env)
+  - Or use environment variables via Dockerfile
+  - You can also use a almost complete [Docker Image]("https://hub.docker.com/repository/docker/toasty65/discord-serverstats#"). Simply pull the image and adapt the environment variables `CLIENTID`, `DEVELOPERID`, `GUILDID` and `TOKEN` to your environment when creating a new container. Here's an example:
+    - `docker run --name discord-serverstats_test -e "CLIENTID=<Your bot's client ID>" -e "DEVELOPERID=<ID of the user to contact when an error occured>" -e "GUILDID=<Id of your guild>" -e "TOKEN=<Your bot's token>" toasty65/discord-serverstats:1.0`
 - Following npm packages:
   - discord.js
   - dotenv
@@ -23,6 +25,7 @@ A server-stats bot written by Toasty, for the [JuLe Netzwerk](http://www.jule-ne
 - **IDE:** Visual Studio Code
 - GitHub
 - NPM
+- Docker
 
 ## Bugs & Improvements
 
