@@ -14,7 +14,9 @@ A server-stats bot for the chatting platform `Discord`, written by Toasty
 - A complete and valid `.env` file -> [Example file](https://github.com/Toasty65/Discord-ServerStats/blob/main/.env)
   - Or use environment variables via Dockerfile
   - You can also use a almost complete [Docker Image](https://hub.docker.com/repository/docker/toasty65/discord-serverstats#). Simply pull the image and adapt the environment variables `CLIENTID`, `DEVELOPERID`, `GUILDID` and `TOKEN` to your environment when creating a new container. Here's an example:
-    - `docker run --name discord-serverstats_test -e "CLIENTID=<Your bot's client ID>" -e "DEVELOPERID=<ID of the user to contact when an error occured>" -e "GUILDID=<Id of your guild>" -e "TOKEN=<Your bot's token>" toasty65/discord-serverstats:1.0`
+     ```
+    docker run --name discord-serverstats_test -e "CLIENTID=<Your bot's client ID>" -e "DEVELOPERID=<ID of the user to contact when an error occured>" -e "GUILDID=<Id of your guild>" -e "TOKEN=<Your bot's token>" toasty65/discord-serverstats:1.0
+    ```
 - Following npm packages:
   - discord.js
   - dotenv
